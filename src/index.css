@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* HKBP Brand Colors */
+    --hkbp-blue: #1E3A8A;
+    --hkbp-blue-dark: #1E40AF;
+    --hkbp-blue-light: #3B82F6;
+    --hkbp-sky: #0EA5E9;
+    --hkbp-white: #FFFFFF;
+    --hkbp-cream: #F8FAFC;
+    --hkbp-gray-light: #F1F5F9;
+    --hkbp-gray: #E2E8F0;
+    --hkbp-gray-dark: #475569;
+    --hkbp-navy: #0F172A;
+    --hkbp-gold: #B8860B;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, var(--hkbp-blue) 0%, var(--hkbp-blue-dark) 50%, var(--hkbp-navy) 100%);
+    background-attachment: fixed;
+    color: var(--hkbp-white);
+    position: relative;
+}
+
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--hkbp-blue);
+    color: var(--hkbp-white);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 10000;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Performance optimizations */
+.snowflake, .sparkle {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .snowflake, .sparkle {
+        display: none;
+    }
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 48px;
+    color: var(--hkbp-white);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.8s;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .section-title { 
+        font-size: 36px; 
+    }
+}

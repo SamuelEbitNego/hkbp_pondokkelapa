@@ -1,0 +1,27 @@
+/* Global snowflakes for all sections */
+.body-snowflake {
+    position: fixed;
+    color: white;
+    font-size: 20px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 5;
+    animation: bodySnowfall 15s linear infinite;
+}
+
+@keyframes bodySnowfall {
+    0% { 
+        top: -10%; 
+        opacity: 0;
+    }
+    10% { 
+        opacity: 0.8;
+    }
+    90% { 
+        opacity: 0.8;
+    }
+    100% { 
+        top: 110%; 
+        opacity: 0;
+    }
+}

@@ -1,0 +1,16 @@
+.footer {
+    background: var(--hkbp-blue);
+    padding: 40px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    border-top: 4px solid var(--hkbp-gold);
+}
+
+.footer-text {
+    font-size: 14px;
+}
+
+.footer-gold {
+    color: var(--hkbp-gold);
+    font-weight: bold;
+}
