@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import './GallerySection.css'
 
 const galleryItems = [
-  { caption: 'Gedung Gereja', image: '/foto/gedung.jpeg' },
+  { caption: 'Gubernur DKI Jakarta Kunjugi HKBP Pondok Kelapa', image: '/foto/gubernur.jpg' },
+  { caption: 'Gedung Gereja HKBP Pondok Kelapa', image: '/foto/gedung.jpeg' },
   { caption: 'Ulang Tahun Gereja', image: '/foto/ultah_gereja.jpeg' },
   { caption: 'Renovasi Pembangunan Gereja', image: '/foto/renovasi.jpg' },
   { caption: 'Peletakkan Batu Pertama', image: '/foto/peletakkan.jpg' },

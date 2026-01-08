@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faYoutube } from '@fortawesome/free-brands-svg-icons'
+
 import emailjs from '@emailjs/browser'
 import './ContactSection.css'
 
-// Initialize EmailJS
 emailjs.init('UfDy-2gs4PwkWljcn')
 
 function ContactSection() {
@@ -44,7 +49,7 @@ function ContactSection() {
   const handleSubmit = (e) => {
     e.preventDefault()
     
-    // Basic validation
+    // Dasar validasi
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus({ type: 'error', message: 'Mohon lengkapi semua field yang wajib diisi.' })
       return
@@ -52,7 +57,7 @@ function ContactSection() {
 
     setIsLoading(true)
 
-    // Send email via EmailJS
+    // Mengirim email menggunakan ke email js
     emailjs.send(
       'service_2cxrxri',
       'template_m6cvf6s',
@@ -67,7 +72,6 @@ function ContactSection() {
     .then((response) => {
       setFormStatus({ type: 'success', message: 'Terima kasih! Pesan Anda telah terkirim.' })
       
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -76,7 +80,6 @@ function ContactSection() {
         message: ''
       })
 
-      // Clear status after 5 seconds
       setTimeout(() => {
         setFormStatus({ type: '', message: '' })
       }, 5000)
@@ -94,22 +97,45 @@ function ContactSection() {
     <section className="contact-section" id="contact" aria-labelledby="contact-title">
       <div className="contact-container">
         <h2 className="section-title" id="contact-title" ref={titleRef}>Hubungi Kami</h2>
-        
+
         <div className="contact-grid">
           <div className="contact-card">
-            <div className="contact-icon">📍</div>
-            <div className="contact-label">Alamat</div>
-            <div className="contact-info">
-              Jl. P. Klp. Timur Dalam No.1a 10, RT.10/RW.11, Pd. Klp., Kec.<br />
-              Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13450<br />
+            <div className="contact-icon">
+              <FontAwesomeIcon icon={faYoutube} />
+            </div>
+            <div className="contact-label">You Tube</div>
+            <div className='contact-info'>
+              <a href="https://www.youtube.com/@hkbppondokkelapa8726/videos">@hkbppondokkelapa8726</a>
             </div>
           </div>
 
           <div className="contact-card">
-            <div className="contact-icon">✉️</div>
+            <div className="contact-icon">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </div>
             <div className="contact-label">Email</div>
             <div className="contact-info">
               <a href="mailto:samuelebitnego13@gmail.com">samuelebitnego13@gmail.com</a>
+            </div>
+          </div>
+
+          <div className="contact-card">
+            <div className="contact-icon">
+              <FontAwesomeIcon icon={faInstagram} />
+            </div>
+            <div className="contact-label">Instagram</div>
+            <div className="contact-info">
+              <a href="https://instagram.com/hkbppondokkelapa" target="_blank" rel="noopener noreferrer">@hkbppondokkelapa</a>
+            </div>
+          </div>
+
+          <div className="contact-card">
+            <div className="contact-icon">
+              <FontAwesomeIcon icon={faFacebook} />
+            </div>
+            <div className="contact-label">Facebook</div>
+            <div className="contact-info">
+              <a href="https://www.facebook.com/people/HKBP-Pondok-Kelapa/61550892745100/" target="_blank" rel="noopener noreferrer">HKBP Pondok Kelapa</a>
             </div>
           </div>
         </div>
@@ -154,14 +180,14 @@ function ContactSection() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="subject">Subjek</label>
+            <label htmlFor="subject">Subjek *</label>
             <select
               id="subject"
               name="subject"
               value={formData.subject}
               onChange={handleChange}
             >
-              <option value="">Pilih subjek</option>
+              <option value="">Pilih Subject</option>
               <option value="ibadah">Informasi Ibadah</option>
               <option value="pernikahan">Pemberkatan Pernikahan</option>
               <option value="sekolah-minggu">Sekolah Minggu</option>
@@ -195,7 +221,9 @@ function ContactSection() {
 
         <div className="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.144699210183!2d106.93442907387725!3d-6.244654161144139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698dddba8afed1%3A0x1d19d6e040b912c4!2sHKBP%20Ressort%20Pondok%20Kelapa!5e0!3m2!1sid!2sid!4v1763721825456!5m2!1sid!2sid" width="600" height
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.144699210183!2d106.93442907387725!3d-6.244654161144139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698dddba8afed1%3A0x1d19d6e040b912c4!2sHKBP%20Ressort%20Pondok%20Kelapa!5e0!3m2!1sid!2sid!4v1763721825456!5m2!1sid!2sid" 
+            width="600" 
+            height="450"
             allowFullScreen=""
             loading="lazy"
             title="Lokasi HKBP Pondok Kelapa"

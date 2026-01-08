@@ -7,6 +7,18 @@ const timelineData = [
     text: 'Gereja HKBP Pondok Kelapa berdiri pada Mei 1990.'
   },
   {
+    year: '11 Mei 2003',
+    text: 'HKBP Pondok Kelapa menjadi resort'
+  },
+  {
+    year: '28 Juni 2023',
+    text: 'Progress dokumen dan proses untuk kita bisa beribadah dengan nyaman di HKBP Pondok Kelapa.'
+  },
+  {
+    year: '07 Februari 2024',
+    text: 'Surat perijinan rekomendasi beribadah yang di tanda tangani Walikota Jakarta Timur.'
+  },
+  {
     year: '21 April 2025',
     text: 'Peletakan batu pertama untuk mulai pembangunan Gereja HKBP Pondok Kelapa.'
   },
@@ -16,7 +28,7 @@ const timelineData = [
   },
   {
     year: '14 Desember 2025',
-    text: 'Peresmian Pembangunan Gereja HKBP Pondok Kelapa.'
+    text: 'Peresmian Pembangunan Gereja HKBP Pondok Kelapa beserta dengan tanda tangan Eforus dan Gubernur DKI Jakarta.'
   }
 ]
 
