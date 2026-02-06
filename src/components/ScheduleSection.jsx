@@ -5,9 +5,9 @@ const schedules = [
   {
     day: 'Minggu',
     times: [
-      { time: '06:00 - 08:00 WIB', desc: 'Ibadah Minggu I' },
-      { time: '07:00 - 09:00 WIB', desc: 'Sekolah Minggu' },
-      { time: '10:00 - 12:00 WIB', desc: 'Ibadah Minggu II' }
+      { time: '07:30 WIB', desc: 'Ibadah Minggu I Bahasa Indonesia' },
+      { time: '10:00 - 12:00 WIB', desc: 'Ibadah Minggu II Bahasa Batak' },
+      { time: '07:30 WIB', desc: 'Sekolah Minggu' }
     ]
   },
   {
@@ -23,7 +23,7 @@ const schedules = [
     ]
   },
   {
-    day: 'Sabtu',
+    day: 'Jumat',
     times: [
       { time: '19:00 - 22:00 WIB', desc: 'Koor Ama' }
     ]
@@ -44,36 +44,7 @@ const announcements = [
     badge: 'Penting',
     urgent: true
   },
-  {
-    date: '20 Desember 2025',
-    title: 'Natal Sekolah Minggu',
-    content: 'Kegiatan natal sekolah minggu pada tanggal 20 Desember 2025.',
-    badge: 'Event'
-  },
-  {
-    date: '24 Desember 2025',
-    title: 'Ibadah Malam Natal',
-    content: 'Ibadah malam natal 24 Desember 2025.',
-    badge: 'Event'
-  },
-  {
-    date: '25 Desember 2025',
-    title: 'Ibadah Natal',
-    content: 'Ibadah Natal (2x ibadah) 25 Desember 2025',
-    badge: 'Event'
-  },
-  {
-    date: '26 Desember 2025',
-    title: 'Ibadah Natal Gabungan',
-    content: 'Ibadah Natal Gabungan (Remaja, Naposo, Ama, Ina) 26 Desember 2025',
-    badge: 'Event'
-  },
-  {
-    date: '31 Desember 2025',
-    title: 'Ibadah Malam Tahun Baru',
-    content: 'Ibadah malam tahun baru 31 Desember 2025',
-    badge: 'Event'
-  },
+
   {
     date: 'Tanpa Batasan Waktu',
     title: 'Anggota Multimedia',

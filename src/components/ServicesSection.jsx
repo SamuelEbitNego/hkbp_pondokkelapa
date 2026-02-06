@@ -5,7 +5,7 @@ const services = [
   {
     icon: '⛪',
     title: 'Ibadah Minggu',
-    description: 'Ibadah rutin setiap hari Minggu pagi pukul 06:30 dan 08:00 & Minggu siang 10:00 dan 12:00 WIB dengan suasana khusyuk dan gereja indah kami.'
+    description: 'Ibadah rutin setiap hari Minggu pagi pukul 07:30 Ibadah Pagi, Sekolah Minggu & Minggu siang 10:00.'
   },
   {
     icon: '💒',
