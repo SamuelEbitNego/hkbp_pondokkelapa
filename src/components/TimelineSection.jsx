@@ -1,82 +1,62 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
+import useScrollReveal from '../hooks/useScrollReveal'
 import './TimelineSection.css'
 
 const timelineData = [
-  {
-    year: '13 Mei 1990',
-    text: 'Gereja HKBP Pondok Kelapa berdiri pada Mei 1990.'
-  },
-  {
-    year: '11 Mei 2003',
-    text: 'HKBP Pondok Kelapa menjadi resort'
-  },
+  { year: '13 Mei 1990', text: 'Gereja HKBP Pondok Kelapa berdiri pada Mei 1990.' },
+  { year: '11 Mei 2003', text: 'HKBP Pondok Kelapa resmi menjadi Resort.' },
   {
     year: '28 Juni 2023',
-    text: 'Progress dokumen dan proses untuk kita bisa beribadah dengan nyaman di HKBP Pondok Kelapa.'
+    text: 'Proses dokumen dan perizinan agar jemaat dapat beribadah dengan nyaman di HKBP Pondok Kelapa.',
   },
   {
     year: '07 Februari 2024',
-    text: 'Surat perijinan rekomendasi beribadah yang di tanda tangani Walikota Jakarta Timur.'
+    text: 'Surat rekomendasi izin beribadah ditandatangani oleh Walikota Jakarta Timur.',
   },
   {
     year: '21 April 2025',
-    text: 'Peletakan batu pertama untuk mulai pembangunan Gereja HKBP Pondok Kelapa.'
+    text: 'Peletakan batu pertama menandai dimulainya pembangunan Gereja HKBP Pondok Kelapa.',
   },
   {
     year: '21 April 2025',
-    text: 'Renovasi besar-besaran dengan penambahan fasilitas modern dan sistem audio visual terkini.'
+    text: 'Renovasi besar dengan penambahan fasilitas modern dan sistem audio visual terkini.',
   },
   {
     year: '14 Desember 2025',
-    text: 'Peresmian Pembangunan Gereja HKBP Pondok Kelapa beserta dengan tanda tangan Eforus dan Gubernur DKI Jakarta.'
-  }
+    text: 'Peresmian pembangunan Gereja HKBP Pondok Kelapa bersama Ephorus dan Gubernur DKI Jakarta.',
+  },
 ]
 
 function TimelineSection() {
-  const titleRef = useRef(null)
-  const itemsRef = useRef([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    if (titleRef.current) {
-      observer.observe(titleRef.current)
-    }
-
-    itemsRef.current.forEach(item => {
-      if (item) observer.observe(item)
-    })
-
-    return () => observer.disconnect()
-  }, [])
+  const ref = useScrollReveal()
 
   return (
-    <section className="timeline-section" id="timeline" aria-labelledby="timeline-title">
-      <h2 className="section-title" id="timeline-title" ref={titleRef}>Sejarah Kami</h2>
-      <div className="timeline-container">
-        <div className="timeline-line"></div>
-        {timelineData.map((item, index) => (
-          <div 
-            className="timeline-item" 
-            key={index}
-            ref={el => itemsRef.current[index] = el}
-          >
-            <div className="timeline-content">
-              <div className="timeline-year">{item.year}</div>
-              <div className="timeline-text">{item.text}</div>
+    <section className="timeline section section--surface" id="timeline" aria-labelledby="timeline-title" ref={ref}>
+      <div className="container">
+        <div className="section-heading reveal">
+          <span className="eyebrow">Perjalanan Kami</span>
+          <h2 className="section-title" id="timeline-title">Sejarah HKBP Pondok Kelapa</h2>
+          <p className="section-subtitle">
+            Jejak langkah pertumbuhan gereja dari masa ke masa.
+          </p>
+        </div>
+
+        <div className="timeline-wrap">
+          <span className="timeline-line" aria-hidden="true"></span>
+          {timelineData.map((item, index) => (
+            <div
+              className="t-item reveal"
+              key={index}
+              style={{ transitionDelay: `${(index % 2) * 0.08}s` }}
+            >
+              <div className="t-card">
+                <span className="t-year">{item.year}</span>
+                <p className="t-text">{item.text}</p>
+              </div>
+              <span className="t-dot" aria-hidden="true"></span>
             </div>
-            <div className="timeline-dot"></div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

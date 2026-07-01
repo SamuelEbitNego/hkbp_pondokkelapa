@@ -1,87 +1,123 @@
-/* 3D Card Section */
-.cards-section {
-    min-height: 100vh;
-    background: transparent;
-    padding: 100px 40px;
-    perspective: 1000px;
-    position: relative;
-}
-
-.cards-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    position: relative;
-    z-index: 10;
+    gap: 28px;
 }
 
-.card-3d {
-    background: rgba(30, 58, 138, 0.15);
-    border: 2px solid rgba(184, 134, 11, 0.4);
-    border-radius: 20px;
-    padding: 40px;
-    transform-style: preserve-3d;
-    transition: all 0.4s ease;
-    cursor: pointer;
+.service-card {
     position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 42px 34px 38px;
+    box-shadow: var(--shadow-sm);
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    isolation: isolate;
+    will-change: transform;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
 }
 
-.card-3d::before {
+/* garis emas tipis di tepi atas, muncul saat hover */
+.service-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(30, 58, 138, 0.05) 0%, transparent 70%);
-    transform: translateZ(-10px);
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--gold-grad);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s var(--ease);
+    z-index: 2;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(227, 199, 102, 0.5);
+}
+
+.service-card:hover::before { transform: scaleX(1); }
+
+/* glow emas mengikuti kursor — var --mx/--my ditulis oleh useTilt */
+.service-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     opacity: 0;
-    transition: opacity 0.6s;
+    background: radial-gradient(
+        260px circle at var(--mx, 50%) var(--my, 0%),
+        rgba(227, 199, 102, 0.24),
+        transparent 60%
+    );
+    transition: opacity 0.4s var(--ease);
 }
 
-.card-3d:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(184, 134, 11, 0.5);
-    border-color: var(--hkbp-gold);
-    background: rgba(30, 58, 138, 0.25);
-}
+.service-card:hover .service-glow { opacity: 1; }
 
-.card-3d:hover::before {
-    opacity: 1;
-}
-
-.card-3d:focus {
-    outline: 3px solid var(--hkbp-gold);
-    outline-offset: 3px;
-}
-
-.card-icon {
+/* nomor urut sebagai watermark halus di pojok kartu */
+.service-num {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    z-index: 0;
+    font-family: var(--font-display);
     font-size: 64px;
-    text-align: center;
-    margin-bottom: 20px;
-    transform: translateZ(30px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.4s var(--ease), color 0.4s var(--ease);
 }
 
-.card-title {
-    font-size: 28px;
-    color: var(--hkbp-white);
-    text-align: center;
-    margin-bottom: 15px;
-    transform: translateZ(20px);
-    font-weight: 600;
-    transition: color 0.3s ease;
+.service-card:hover .service-num {
+    opacity: 0.14;
+    color: var(--gold-600);
 }
 
-.card-description {
-    color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    line-height: 1.8;
-    font-size: 16px;
-    transform: translateZ(10px);
-    transition: color 0.3s ease;
+.service-icon {
+    position: relative;
+    z-index: 1;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: var(--navy-700);
+    background: linear-gradient(150deg, var(--cream-200), #fff);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    margin-bottom: 26px;
+    transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease-spring);
+}
+
+.service-card:hover .service-icon {
+    background: var(--gold-grad);
+    color: var(--navy-900);
+    transform: rotate(-6deg) scale(1.08);
+}
+
+.service-title {
+    position: relative;
+    z-index: 1;
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+}
+
+.service-desc {
+    position: relative;
+    z-index: 1;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.7;
+}
+
+@media (max-width: 520px) {
+    .service-card { padding: 34px 26px 30px; }
+    .service-num { font-size: 54px; }
 }

@@ -32,6 +32,24 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/foto/logo_hkbp.png">
     <link rel="apple-touch-icon" href="/foto/logo_hkbp.png">
+    <meta name="theme-color" content="#0A1A3F">
+
+    <!-- Theme: set data-theme sebelum render untuk mencegah flash (FOUC) -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
@@ -41,8 +59,7 @@
       "name": "HKBP Pondok Kelapa",
       "image": "https://hkbp-pondokkelapa.vercel.app/foto/gedung.jpeg",
       "url": "https://hkbp-pondokkelapa.vercel.app",
-      "telephone": "+62-21-1234-5678",
-      "email": "info@hkbppondokkelapa.com",
+      "email": "samuelebitnego13@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jalan Pondok Kelapa",
@@ -84,13 +101,12 @@
             <p>Selamat datang di website HKBP Pondok Kelapa. Untuk pengalaman terbaik, mohon aktifkan JavaScript di browser Anda.</p>
             <h2>Informasi Kontak</h2>
             <p>Alamat: Jalan Pondok Kelapa, Jakarta Timur, DKI Jakarta 13450</p>
-            <p>Email: info@hkbppondokkelapa.com</p>
-            <p>Telepon: +62-21-1234-5678</p>
+            <p>Email: samuelebitnego13@gmail.com</p>
             <h2>Jadwal Ibadah</h2>
             <ul style="list-style: none;">
-                <li>Ibadah Minggu Pagi: 08:00 WIB</li>
-                <li>Ibadah Minggu Siang: 10:30 WIB</li>
-                <li>Sekolah Minggu: 08:00 WIB</li>
+                <li>Ibadah Minggu I (Bahasa Indonesia): 07:30 WIB</li>
+                <li>Ibadah Minggu II (Bahasa Batak): 10:00 WIB</li>
+                <li>Sekolah Minggu: 07:30 WIB</li>
             </ul>
         </div>
     </noscript>
