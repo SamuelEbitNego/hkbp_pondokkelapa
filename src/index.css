@@ -88,11 +88,21 @@
     --mesh-2: rgba(43, 75, 168, 0.40);
 }
 
-/* Penyesuaian nilai #fff hardcoded agar tidak menyilaukan di mode gelap */
+/* Penyesuaian nilai #fff hardcoded agar tidak menyilaukan di mode gelap.
+   Glyph ikon juga dibuat emas: warna navy asalnya tak terbaca di permukaan gelap. */
 :root[data-theme="dark"] .service-icon,
 :root[data-theme="dark"] .contact-card-icon,
 :root[data-theme="dark"] .value-card-icon {
     background: linear-gradient(150deg, var(--cream-200), var(--surface));
+    color: var(--gold-400);
+}
+
+/* Saat hover, kembalikan ikon ke emas penuh + glyph navy (samakan dgn mode terang) */
+:root[data-theme="dark"] .service-card:hover .service-icon,
+:root[data-theme="dark"] .contact-card:hover .contact-card-icon,
+:root[data-theme="dark"] .value-card:hover .value-card-icon {
+    background: var(--gold-grad);
+    color: var(--navy-900);
 }
 
 :root[data-theme="dark"] .form-group input,
@@ -106,6 +116,10 @@
 :root[data-theme="dark"] .form-group textarea::placeholder {
     color: #6B7595;
 }
+
+/* Pesan status form: teks gelap asalnya nyaris tak terbaca di panel gelap */
+:root[data-theme="dark"] .form-status--success { color: #6EDE9F; }
+:root[data-theme="dark"] .form-status--error { color: #F3A0A0; }
 
 html {
     scroll-behavior: smooth;
