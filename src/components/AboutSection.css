@@ -145,7 +145,6 @@
 
 .about-body.reveal { transition-delay: 0.12s; }
 
-/* ===== Kartu nilai ===== */
 .about-values {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

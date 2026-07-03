@@ -45,7 +45,6 @@ function Navbar() {
     return () => observer.disconnect()
   }, [])
 
-  // Kunci scroll body saat menu mobile terbuka.
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => {
