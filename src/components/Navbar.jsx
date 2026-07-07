@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faMoon, faSun, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import useTheme from '../hooks/useTheme'
 import './Navbar.css'
 
@@ -8,6 +8,16 @@ const links = [
   { href: '#hero', label: 'Beranda' },
   { href: '#about', label: 'Tentang' },
   { href: '#services', label: 'Layanan' },
+  {
+    href: '#pengurus',
+    label: 'Pengurus',
+    children: [
+      { href: '#parhalado', label: 'Parhalado' },
+      { href: '#multimedia', label: 'Multimedia' },
+      { href: '#remaja-naposo', label: 'Pengurus Remaja dan Naposo' },
+      { href: '#sekolah-minggu', label: 'Sekolah Minggu' },
+    ],
+  },
   { href: '#schedule', label: 'Jadwal' },
   { href: '#timeline', label: 'Sejarah' },
   { href: '#gallery', label: 'Galeri' },
@@ -17,6 +27,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [active, setActive] = useState('#hero')
+  const [openDropdown, setOpenDropdown] = useState(null)
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
@@ -52,7 +63,13 @@ function Navbar() {
     }
   }, [menuOpen])
 
-  const close = () => setMenuOpen(false)
+  const close = () => {
+    setMenuOpen(false)
+    setOpenDropdown(null)
+  }
+
+  const toggleDropdown = (href) =>
+    setOpenDropdown((cur) => (cur === href ? null : href))
 
   return (
     <nav
@@ -83,18 +100,51 @@ function Navbar() {
 
         <div className={`nav-menu ${menuOpen ? 'open' : ''}`} id="nav-links">
           <ul className="nav-links">
-            {links.map((l, i) => (
-              <li key={l.href} style={{ '--i': i }}>
-                <a
-                  href={l.href}
-                  className={active === l.href ? 'active' : ''}
-                  aria-current={active === l.href ? 'true' : undefined}
-                  onClick={close}
+            {links.map((l, i) =>
+              l.children ? (
+                <li
+                  key={l.href}
+                  style={{ '--i': i }}
+                  className={`has-dropdown ${openDropdown === l.href ? 'open' : ''}`}
                 >
-                  {l.label}
-                </a>
-              </li>
-            ))}
+                  <button
+                    type="button"
+                    className={`dropdown-trigger ${active === l.href ? 'active' : ''}`}
+                    aria-haspopup="true"
+                    aria-expanded={openDropdown === l.href}
+                    onClick={() => toggleDropdown(l.href)}
+                  >
+                    {l.label}
+                    <FontAwesomeIcon icon={faChevronDown} className="dropdown-caret" />
+                  </button>
+                  <ul className="dropdown-menu">
+                    {l.children.map((c) => (
+                      <li key={c.href}>
+                        <a
+                          href={c.href}
+                          className={active === c.href ? 'active' : ''}
+                          aria-current={active === c.href ? 'true' : undefined}
+                          onClick={close}
+                        >
+                          {c.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li key={l.href} style={{ '--i': i }}>
+                  <a
+                    href={l.href}
+                    className={active === l.href ? 'active' : ''}
+                    aria-current={active === l.href ? 'true' : undefined}
+                    onClick={close}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
           <a href="#contact" className="btn btn--gold nav-cta" onClick={close}>
             Hubungi Kami

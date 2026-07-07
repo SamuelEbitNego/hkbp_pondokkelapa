@@ -122,6 +122,110 @@
     font-size: 15px;
 }
 
+/* ---------- Dropdown Pengurus ---------- */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--on-dark);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 15.5px;
+    line-height: 1;
+    padding: 6px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.25s var(--ease);
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+    color: var(--gold-300);
+}
+
+.dropdown-caret {
+    font-size: 11px;
+    transition: transform 0.3s var(--ease);
+}
+
+.dropdown-menu {
+    list-style: none;
+}
+
+@media (min-width: 901px) {
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        min-width: 236px;
+        padding: 10px;
+        background: rgba(10, 26, 63, 0.96);
+        backdrop-filter: blur(16px) saturate(140%);
+        -webkit-backdrop-filter: blur(16px) saturate(140%);
+        border: 1px solid rgba(227, 199, 102, 0.24);
+        border-radius: 14px;
+        box-shadow: 0 20px 46px rgba(6, 14, 34, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.28s var(--ease), transform 0.28s var(--ease),
+                    visibility 0.28s var(--ease);
+        z-index: 10;
+    }
+
+    /* Jembatan tak terlihat agar dropdown tetap terbuka saat kursor turun */
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -16px;
+        left: 0;
+        width: 100%;
+        height: 16px;
+    }
+
+    .has-dropdown:hover .dropdown-menu,
+    .has-dropdown:focus-within .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .has-dropdown:hover .dropdown-caret,
+    .has-dropdown:focus-within .dropdown-caret {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px 14px;
+        border-radius: 9px;
+        color: var(--on-dark);
+        font-size: 14.5px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: background 0.22s var(--ease), color 0.22s var(--ease),
+                    padding-left 0.22s var(--ease);
+    }
+
+    .dropdown-menu a::after {
+        display: none;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
+        background: rgba(227, 199, 102, 0.14);
+        color: var(--gold-300);
+        padding-left: 20px;
+    }
+}
+
 .theme-toggle {
     position: relative;
     z-index: 2;
@@ -284,5 +388,57 @@
     .nav-menu.open .nav-cta {
         animation: navLinkIn 0.5s var(--ease-out) forwards;
         animation-delay: 0.5s;
+    }
+
+    /* Dropdown Pengurus versi mobile: akordeon */
+    .has-dropdown {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown-trigger {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 18px;
+        padding: 14px 8px;
+        border-bottom: 1px solid rgba(245, 243, 236, 0.08);
+    }
+
+    .dropdown-caret {
+        font-size: 13px;
+    }
+
+    .has-dropdown.open .dropdown-caret {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        max-height: 0;
+        overflow: hidden;
+        padding-left: 12px;
+        transition: max-height 0.4s var(--ease);
+    }
+
+    .has-dropdown.open .dropdown-menu {
+        max-height: 340px;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        font-size: 16px;
+        padding: 12px 8px;
+        color: var(--on-dark);
+        border-bottom: 1px solid rgba(245, 243, 236, 0.06);
+        transition: color 0.25s var(--ease), padding-left 0.25s var(--ease);
+    }
+
+    .dropdown-menu a::after {
+        display: none;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
+        color: var(--gold-300);
+        padding-left: 14px;
     }
 }
