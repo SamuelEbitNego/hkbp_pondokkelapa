@@ -57,6 +57,7 @@ const groups = [
     members: [
       { name: 'Grace Silitonga', role: 'Ketua Naposo', initials: 'GS' },
       { name: 'Cindy Simangungsong', role: 'BPH Naposo', initials: 'CS' },
+      { name: 'Melisa Sidabutar', role: 'Koordinator Rohani', initials: 'MS'},
       { name: 'Sintong Sihombing', role: 'Koordinator Humas', initials: 'SS' },
       { name: 'Dian Silitonga', role: 'Koordinator Talenta', initials: 'SS' },
     ],
