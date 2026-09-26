@@ -19,7 +19,7 @@ const groups = [
     title: 'Parhalado',
     subtitle: 'Majelis pelayan gereja — Pendeta dan Sintua.',
     members: [
-      { name: 'Pdt. Rittar Nababan, S.Th., MM', role: 'Pendeta Ressort', initials: 'RN' },
+      { name: 'Pdt. Rittar Nababan, S.Th., M.M', role: 'Pendeta Ressort', initials: 'RN' },
       { name: 'St. G.J.H. Panjaitan', role: 'Sintua', initials: 'GP' },
       { name: 'St. Boby Simanjuntak', role: 'Sintua', initials: 'BS' },
       { name: 'St. Pimpin Hutasoit', role: 'Sintua', initials: 'PH' },
