@@ -70,6 +70,7 @@ const groups = [
     members: [
       { name: 'Merry Aritonang', role: 'Guru sekolah minggu', initials: 'MA' },
       { name: 'Ratna Siringoringo', role: 'Guru sekolah minggu', initials: 'RS' },
+      { name: 'Rainhard Tobing', role: 'Guru sekolah minggu', initials: 'RT'},
       { name: 'Miniur Tobing', role: 'Guru sekolah minggu', initials: 'MT' },
       { name: 'Grace Silitonga', role: 'Guru sekolah minggu', initials: 'GS' },
       { name: 'Ningsih Situmorang', role: 'Guru sekolah minggu', initials: 'NS' },
