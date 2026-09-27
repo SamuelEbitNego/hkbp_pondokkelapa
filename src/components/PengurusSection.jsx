@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import useScrollReveal from '../hooks/useScrollReveal'
 import './PengurusSection.css'
+import { init } from '@emailjs/browser'
 
 // Data contoh — ganti nama, jabatan, dan foto sesuai data sebenarnya.
 // Tambahkan properti `photo: '/foto/nama.jpg'` pada anggota untuk memakai foto asli
@@ -20,15 +21,30 @@ const groups = [
     subtitle: 'Majelis pelayan gereja — Pendeta dan Sintua.',
     members: [
       { name: 'Pdt. Rittar Nababan, S.Th., M.M', role: 'Pendeta Ressort', initials: 'RN' },
-      { name: 'St. G.J.H. Panjaitan', role: 'Sintua', initials: 'GP' },
+      { name: 'St. Gabur John Herbent. Panjaitan', role: 'Sintua', initials: 'GJHP' },
       { name: 'St. Boby Simanjuntak', role: 'Sintua', initials: 'BS' },
-      { name: 'St. Pimpin Hutasoit', role: 'Sintua', initials: 'PH' },
-      { name: 'St. Martinus Nababan', role: 'Sintua', initials: 'MN' },
-      { name: 'St. Donar Saragih', role: 'Sintua', initials: 'DS' },
-      { name: 'St. Yoseph Simangungsong', role: 'Sintua', initials: 'YS' },
-      { name: 'St. Wilson Nainggolan', role: 'Sintua', initials: 'WN' },
-      { name: 'St. Napitupulu', role: 'Sintua', initials: 'N' },
-      { name: 'Cst. Yosua Manurung', role: 'Sintua', initials: 'YM' },
+      { name: 'St. Frans Parlindungan Simangungsong', role: 'Sintua', initials: 'FPS' },
+      { name: 'St. Agustian Pandapotan Manurung', role: 'Sintua', initials: 'APM'},
+      { name: 'St. Kristian Tongam Manurung', role: 'Sintua', initials: 'KTM' },
+      { name: 'St. Pimpin Panogari Pargomgom Hutasoit', role: 'Sintua', initials: 'PPPH' },
+      { name: 'St. Martinus Pangihutan Nababan', role: 'Sintua', initials: 'MPN' },
+      { name: 'St. Injelyati br. Nainggolan', role: 'Sintua', initials: 'IN' },
+      { name: 'St. Riyani br. Harianja', role: 'Sintua', initials: 'RH' },
+      { name: 'St. Alton Rheno Almert Sidauruk', role: 'Sintua', initials: 'ARAS' },
+      { name: 'St. Lina Saudur br. Sinaga', role: 'Sintua', initials: 'LSS'},
+      { name: 'Risma Rositawati br. Sirait', role: 'Sintua', initials: 'RS' },
+      { name: 'Naijah Nurmala br. Rajagukguk', role: 'Sintua', initials: 'NNR'},
+      { name: 'St. Donar Alamsah Saragih', role: 'Sintua', initials: 'DAS' },
+      { name: 'St. Apul Pariadin Simorangkir', role: 'Sintua', initials: 'APS'},
+      { name: 'St. Yoseph Nugroho Simangungsong', role: 'Sintua', initials: 'YNS' },
+      { name: 'St. Nova Netty br. Manurung', role: 'Sintua', initials: 'NNM'},
+      { name: 'St. Max Donald Hutajulu', role: 'Sintua', initials: 'MDH' },
+      { name: 'St. Jones William Simanjuntak', role: 'Sintua', initials: 'JWS'},
+      { name: 'St. Wilson Ridwan Pandapotan Nainggolan', role: 'Sintua', initials: 'WRPN' },
+      { name: 'St. Sahat Waltus Napitupulu', role: 'Sintua', initials: 'SWP' },
+      { name: 'St. Rita br. Limbong', role: 'Sintua', initials: 'RL' },
+      { name: 'St. Sadirman Simanjuntak', role: 'Sintua', initials: 'SS'},
+      { name: 'Cst. Yosua Hamonangan Manurung', role: 'Sintua', initials: 'YHM' },
     ],
   },
   {
@@ -37,8 +53,8 @@ const groups = [
     title: 'Multimedia',
     subtitle: 'Tim pelayanan audio, visual, dan siaran ibadah.',
     members: [
-      { name: 'St. Pimpin Hutasoit', role: 'Huria Multimedia', initials: 'PH' },
-      { name: 'Cst. Yosua Manurung', role: 'Ketua Multimedia', initials: 'YM' },
+      { name: 'St. Pimpin Panogari Pargomgom Hutasoit', role: 'Huria Multimedia', initials: 'PPPH' },
+      { name: 'Cst. Yosua Hamonangan Manurung', role: 'Ketua Multimedia', initials: 'YHM' },
       { name: 'William Turnip', role: 'Anggota', initials: 'WT' },
       { name: 'Norton Sipahutar', role: 'Anggota', initials: 'NS' },
       { name: 'Samuel Sihite', role: 'Anggota', initials: 'SS' },
