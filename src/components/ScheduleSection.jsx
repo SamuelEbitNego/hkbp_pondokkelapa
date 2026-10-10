@@ -22,6 +22,7 @@ const schedules = [
     times: [
       { time: '16:00 – 18:00 WIB', desc: 'Sermon Lansia' },
       { time: '19:00 – 22:00 WIB', desc: 'Koor Ama' },
+      { time: '20:00 - 21:00 WIB', desc: 'Sermon Sekolah Minggu'}
     ],
   },
   {
