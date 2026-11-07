@@ -33,22 +33,21 @@ const schedules = [
 
 const announcements = [
   {
-    date: '03 Oktober 2026',
-    title: 'Pendalaman Alkitab : "Closer to Me - Closer to God"',
-    content: 'Pendalaman Alkitab Lokasi di Gereja HKBP Pondok Kelapa di jam 17.00.',
-    badge: 'Penting',
-    urgent: true,
-  },
-  {
     date: 'Tanpa Batas Waktu',
     title: 'Rekrutmen Anggota Multimedia',
     content: 'Tim Multimedia membutuhkan anggota baru untuk pelayanan di HKBP Pondok Kelapa.',
     badge: 'Pelayanan',
   },
   {
-    date: '25 Oktober 2026',
-    title: 'Acara Pesta Gotilon HKBP Pondok Kelapa Oktober 2026',
-    content: 'Acara pesta Gotilon Gereja HKBP Pondok Kelapa Oktober 2026',
+    date: '14 November 2026',
+    title: 'Pendalaman Alkitab',
+    content: 'Pendalaman Alkitab Remaja & Naposo HKBP Pondok Kelapa.',
+    badge: 'Pelayanan',
+  },
+  {
+    date: '19 Desember 2026',
+    title: 'Acara Natalan ',
+    content: 'Acara Natalan Remaja & Naposo HKBP Pondok Kelapa',
     badge: 'Penting',
   }
 ]
